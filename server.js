@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const POKEDEX = require('./pokedex.json');
-const {PORT} = require('./config');
+const { PORT } = require('./config');
 
 
 
@@ -53,15 +53,10 @@ app.get('/pokemon', handleGetPokemon);
 
 
 app.use((error, req, res, next) => {
-  if(process.env.NODE_ENV === 'production'){
-    return res
-      .status(500)
-      .json({error: {message: 'server error'}});
-  }
-  console.log(error);
+  console.error(error);
   return res
     .status(500)
-    .json({error});
+    .json({ error: { message: 'server error' } });
 });
 
 app.listen(PORT, () => {
