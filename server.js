@@ -20,7 +20,7 @@ const validTypes = ['', 'Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting'
 
 
 function handleGetTypes(req, res) {
-  res.json(validTypes);
+  return res.json(validTypes);
 }
 
 function handleGetPokemon(req, res) {
@@ -35,7 +35,7 @@ function handleGetPokemon(req, res) {
   if (type) {
     results = results.filter(pokemon => pokemon.type.toString().includes(type));
   }
-  res.json(results);
+  return res.json(results);
 }
 
 function validateBearerToken(req, res, next) {
