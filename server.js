@@ -48,7 +48,7 @@ function validateBearerToken(req, res, next) {
 }
 
 app.get('/types', handleGetTypes);
-//app.get('/pokemon', handleGetPokemon);
+app.get('/pokemon', handleGetPokemon);
 
 
 
